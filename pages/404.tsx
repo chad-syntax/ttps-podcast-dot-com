@@ -25,7 +25,7 @@ export default function Custom404() {
   return (
     <Wrapper>
       <h1>404 - You lost bud?</h1>
-      <h2>it's probably on you, my website is like, pretty good</h2>
+      <h2>it&apos;s probably on you, my website is like, pretty good</h2>
       <nav>
         <a href="/">Go Home</a>
       </nav>
