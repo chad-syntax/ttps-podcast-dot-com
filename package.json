@@ -20,7 +20,6 @@
   "private": true,
   "dependencies": {
     "@types/react": "^17.0.37",
-    "ipfs-deploy": "^11.1.0",
     "next": "^12.0.7",
     "next-sitemap": "^1.6.203",
     "react": "^17.0.2",
@@ -31,6 +30,7 @@
     "typescript": "^4.5.4"
   },
   "devDependencies": {
+    "@types/node": "^17.0.35",
     "serve": "^13.0.2"
   }
 }

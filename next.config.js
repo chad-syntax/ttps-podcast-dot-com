@@ -1,5 +1,5 @@
 module.exports = {
-  experimental: {
+  compiler: {
     // ssr and displayName are configured by default
     styledComponents: true,
   },
