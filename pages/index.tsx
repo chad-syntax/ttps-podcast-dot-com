@@ -61,7 +61,7 @@ const launchDescription =
   'Listen to the latest episodes of the TTPS podcast, a show about tech, software engineering, and learning. Anyone is free to ask questions, no matter how simple they may seem. Also pot.';
 
 const comingSoonDescription =
-  'Coming Early 2022: a podcast about tech, software engineering, and learning. Anyone is free to ask questions, no matter how simple they may seem. Also pot.';
+  'Coming at some point in 2022: a podcast about tech, software engineering, and learning. Anyone is free to ask questions, no matter how simple they may seem. Also pot.';
 
 export default function Home(props: HomeProps) {
   const {
