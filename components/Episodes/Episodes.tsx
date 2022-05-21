@@ -51,7 +51,7 @@ export const Episodes = (props: EpisodesProps) => {
     return (
       <StyledEpisodes id="episodes">
         <EpisodesInner>
-          <h2 className="coming-soon">Coming soon early 2022</h2>
+          <h2 className="coming-soon">Coming at some point in 2022</h2>
         </EpisodesInner>
       </StyledEpisodes>
     );
