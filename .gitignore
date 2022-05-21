@@ -1,6 +1,5 @@
 .next
 node_modules
 *.log
-out
 .DS_Store
 .env.local
