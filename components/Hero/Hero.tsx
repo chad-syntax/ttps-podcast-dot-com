@@ -27,7 +27,10 @@ export const Hero = ({ comingSoonEnabled, decentralized }: HeroProps) => (
       </DecentralizedVersion>
     )}
     <ArtWrapper>
-      <HeroArt src={ttpsArt.src} />
+      <HeroArt
+        alt="Talking Tech while Poking Smot podcast album cover"
+        src={ttpsArt.src}
+      />
     </ArtWrapper>
     <h1>
       A podcast where a sweaty silicon valley dev shouts into a microphone
