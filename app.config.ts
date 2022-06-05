@@ -5,7 +5,11 @@ export const BUILD_TS = process.env.BUILD_TS
   ? new Date(Number(process.env.BUILD_TS) * 1000)
   : new Date();
 
-console.log('COMING_SOON_ENABLED', COMING_SOON_ENABLED);
+console.log(
+  'COMING_SOON_ENABLED',
+  process.env.COMING_SOON_ENABLED,
+  COMING_SOON_ENABLED
+);
 console.log('RSS_FEED_URL', RSS_FEED_URL);
 
 if (!COMING_SOON_ENABLED && !RSS_FEED_URL)
