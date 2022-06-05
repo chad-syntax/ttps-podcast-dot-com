@@ -6,7 +6,7 @@ Source code for the ttpspodcast.com website
 
 1. clone the repo `git clone git@github:chad-syntax/ttps-podcast-dot-com.git`
 2. install dependencies `yarn install`
-3. initialize your .env file `cp .env.example .env.local`
+3. initialize your .env file `cp .env.example .env.local` and fill in the RSS_FEED_URL
 4. run dev server `yarn dev`
 
 ## Building
@@ -17,11 +17,13 @@ Source code for the ttpspodcast.com website
 
 ## Deploying to github pages
 
-`yarn deploy` will build, export, and subtree push the out folder to the gh-pages git branch
+any merge into `main` will kick off a gh-pages deploy thanks to the build-and-deploy workflow.
 
 ## Building and deploying to ipfs
 
+- `npm install -g ifps-deploy` I'm not adding it to my deps since dependabot goes nuts on it, install it on your own
 - `yarn deploy:eth` will build, export, and deploy to ipfs
+- you will then need to update your ens record with the new ipfs hash
 
 ## .eth domain
 
