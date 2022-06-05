@@ -1,4 +1,4 @@
-import Link from 'next/Link';
+import Link from 'next/link';
 import { StyledHeader, NavLink } from './Header.styled';
 
 export const Header = () => (

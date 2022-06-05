@@ -127,7 +127,10 @@ export const Mailchimp = () => {
                     href="http://eepurl.com/hQgJxj"
                     title="Mailchimp - email marketing made easy and fun"
                   >
-                    <img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_light_dtp.svg" />
+                    <img
+                      alt="made with mailchimp"
+                      src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_light_dtp.svg"
+                    />
                   </a>
                 </p>
               </div>

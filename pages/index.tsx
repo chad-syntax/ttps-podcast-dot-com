@@ -39,11 +39,6 @@ export async function getStaticProps() {
       },
     };
 
-  if (!RSS_FEED_URL)
-    throw new Error(
-      `RSS_FEED_URL is required but not present. check your .env file.`
-    );
-
   const feed = await parser.parseURL(RSS_FEED_URL);
   const episodes = feed.items.map((item) => ({
     url: item.enclosure.url,
