@@ -13,7 +13,7 @@ interface HeroProps {
   decentralized?: boolean;
 }
 
-export const Hero = ({ comingSoonEnabled, decentralized }: HeroProps) => (
+export const Hero = ({ decentralized }: HeroProps) => (
   <StyledHero id="hero">
     {decentralized && (
       <DecentralizedVersion>
@@ -27,7 +27,7 @@ export const Hero = ({ comingSoonEnabled, decentralized }: HeroProps) => (
     <ArtWrapper>
       <HeroArt
         alt="Talking Tech while Poking Smot podcast album cover"
-        src={ttpsArt}
+        src={ttpsArt.src}
         width={440}
         height={440}
       />

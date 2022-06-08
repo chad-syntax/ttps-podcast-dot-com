@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import styled from 'styled-components';
 
 export const StyledHero = styled.section`
@@ -21,13 +20,14 @@ export const StyledHero = styled.section`
   }
 `;
 
-export const HeroArt = styled(Image)`
-  max-width: 60rem;
+export const HeroArt = styled.img`
   display: block;
   margin: 0 auto;
-  padding: 4rem 8rem 0;
+  padding-top: 4rem;
   @media screen and (max-width: 500px) {
-    padding: 0;
+    padding-top: 2rem;
+    width: 100%;
+    height: auto;
   }
 `;
 
@@ -39,8 +39,6 @@ export const ArtWrapper = styled.div`
   @media screen and (max-width: 1000px) {
     min-height: 30vh;
   }
-  text-align: center;
-  padding-top: 4rem;
 `;
 
 export const DecentralizedVersion = styled.div`
