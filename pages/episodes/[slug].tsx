@@ -1,5 +1,5 @@
 import Parser from 'rss-parser';
-import { Hero } from '../../components/Hero/Hero';
+import { Header } from '../../components/Header/Header';
 import { Footer } from '../../components/Footer/Footer';
 import { Episode } from '../../components/Episode/Episode';
 import { Meta } from '../../components/Meta/Meta';
@@ -47,7 +47,6 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
       content: stripScriptTags(targetItem['content:encoded']),
       description: targetItem.contentSnippet || '',
       url: targetItem.enclosure.url,
-      comingSoonEnabled: COMING_SOON_ENABLED,
       datePublished: targetItem.isoDate,
       dateModified: targetItem.isoDate,
     },
@@ -65,8 +64,7 @@ interface EpisodeProps {
 }
 
 export default function EpisodePage(props: EpisodeProps) {
-  const { title, description, comingSoonEnabled, datePublished, dateModified } =
-    props;
+  const { title, description, datePublished, dateModified } = props;
 
   const trimmedDescription = `${description.substring(0, 147)}...`;
 
@@ -79,7 +77,7 @@ export default function EpisodePage(props: EpisodeProps) {
         datePublished={datePublished}
         dateModified={dateModified}
       />
-      <Hero comingSoonEnabled={comingSoonEnabled} />
+      <Header />
       <Episode {...props} />
       <Footer />
     </main>

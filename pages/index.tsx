@@ -5,6 +5,7 @@ import { Episodes } from '../components/Episodes/Episodes';
 import { Footer } from '../components/Footer/Footer';
 import { PodcastLinks } from '../components/PodcastLinks/PodcastLinks';
 import { Meta } from '../components/Meta/Meta';
+import { Header } from '../components/Header/Header';
 import slugify from '../utils/slugify';
 import {
   COMING_SOON_ENABLED as comingSoonEnabled,
@@ -51,9 +52,9 @@ export async function getStaticProps() {
   };
 }
 
-const title = 'Talking Tech while Poking Smot - A Tech Podcast by Chad $yntax';
+const title = 'Talking Tech while Poking Smot - A Dev Podcast by Chad $yntax';
 const launchDescription =
-  'Listen to the latest episodes of the TTPS podcast, a show about tech, software engineering, and learning. Anyone is free to ask questions, no matter how simple they may seem. Also pot.';
+  'Listen to the latest episodes of the TTPS podcast, a show about tech, software engineering, webdev, and learning. Anyone is free to ask questions, no matter how simple they may seem. Also pot.';
 
 const comingSoonDescription =
   'Coming at some point in 2022: a podcast about tech, software engineering, and learning. Anyone is free to ask questions, no matter how simple they may seem. Also pot.';
@@ -80,6 +81,7 @@ export default function Home(props: HomeProps) {
         dateModified={dateModified}
         type="AboutPage"
       />
+      {!comingSoonEnabled && <Header />}
       <Hero
         decentralized={decentralized}
         comingSoonEnabled={comingSoonEnabled}

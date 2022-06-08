@@ -22,6 +22,13 @@ const GlobalStyle = createGlobalStyle`
     -mac-osx-font-smoothing: greyscale;
     box-sizing: border-box;
   }
+
+  main {
+    @media screen and (max-width: 500px) {
+      padding: 0 0.8rem;
+      background-color: ${(p) => p.theme.background};
+    }
+  }
 `;
 
 export default function App({ Component, pageProps }) {

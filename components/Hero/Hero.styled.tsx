@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styled from 'styled-components';
 
 export const StyledHero = styled.section`
@@ -20,8 +21,7 @@ export const StyledHero = styled.section`
   }
 `;
 
-export const HeroArt = styled.img`
-  width: 100%;
+export const HeroArt = styled(Image)`
   max-width: 60rem;
   display: block;
   margin: 0 auto;
@@ -39,6 +39,8 @@ export const ArtWrapper = styled.div`
   @media screen and (max-width: 1000px) {
     min-height: 30vh;
   }
+  text-align: center;
+  padding-top: 4rem;
 `;
 
 export const DecentralizedVersion = styled.div`

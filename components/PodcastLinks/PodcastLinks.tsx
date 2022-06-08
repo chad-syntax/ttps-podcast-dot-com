@@ -1,7 +1,7 @@
 import { StyledPodcastLinks, PodcastLinksInner } from './PodcastLinks.styled';
 
 export const PodcastLinks = () => (
-  <StyledPodcastLinks id="podcast-links">
+  <StyledPodcastLinks id="subscribe">
     <PodcastLinksInner></PodcastLinksInner>
   </StyledPodcastLinks>
 );

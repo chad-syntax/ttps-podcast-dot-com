@@ -4,7 +4,7 @@ import { StyledHeader, NavLink } from './Header.styled';
 export const Header = () => (
   <StyledHeader>
     <nav>
-      <Link href="/#listen">
+      <Link href="/#subscribe">
         <NavLink>Subscribe</NavLink>
       </Link>
       <Link href="/#episodes">

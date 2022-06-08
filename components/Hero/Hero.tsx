@@ -1,11 +1,10 @@
-import { Header } from '../Header/Header';
 import {
   StyledHero,
   HeroArt,
   ArtWrapper,
   DecentralizedVersion,
 } from './Hero.styled';
-import ttpsArt from './ttps-art.png';
+import ttpsArt from './ttps-art-880-880.png';
 import ethereumSvg from './ethereum.svg';
 import { Mailchimp } from './Mailchimp';
 
@@ -16,7 +15,6 @@ interface HeroProps {
 
 export const Hero = ({ comingSoonEnabled, decentralized }: HeroProps) => (
   <StyledHero id="hero">
-    {!comingSoonEnabled && <Header />}
     {decentralized && (
       <DecentralizedVersion>
         <img src={ethereumSvg.src} />
@@ -29,7 +27,9 @@ export const Hero = ({ comingSoonEnabled, decentralized }: HeroProps) => (
     <ArtWrapper>
       <HeroArt
         alt="Talking Tech while Poking Smot podcast album cover"
-        src={ttpsArt.src}
+        src={ttpsArt}
+        width={440}
+        height={440}
       />
     </ArtWrapper>
     <h1>

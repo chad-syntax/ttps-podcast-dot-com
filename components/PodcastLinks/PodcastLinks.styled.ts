@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledPodcastLinks = styled.section`
-  background-color: #080808;
+  background-color: ${(p) => p.theme.background};
 `;
 
 export const PodcastLinksInner = styled.div`

@@ -30,9 +30,13 @@ export const Close = styled.button`
   cursor: pointer;
 `;
 
+// TODO make it marquee
 export const EpisodeTitle = styled.h4`
   color: white;
   margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
 export const TitleWrapper = styled.div`
