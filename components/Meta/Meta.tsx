@@ -77,6 +77,7 @@ export const Meta = (props: MetaProps) => {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-8WF6D29J5K');
+            gtag('config', 'UA-216162033-1');
           `,
         }}
       />
