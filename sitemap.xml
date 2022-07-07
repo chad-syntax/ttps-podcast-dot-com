@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://ttpspodcast.com</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-06-10T04:27:21.808Z</lastmod></url>
+<url><loc>https://ttpspodcast.com</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-07-07T03:59:50.633Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/Goodbye-Internet-Explorer-you-will-not-be-missed</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-07-07T03:59:50.634Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/Whats-SCRUM-like-for-real</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-07-07T03:59:50.634Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/I-hate-cookie-popups-and-you-should-too</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-07-07T03:59:50.634Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/Can-I-be-good-will-hunting</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-07-07T03:59:50.634Z</lastmod></url>
 </urlset>
