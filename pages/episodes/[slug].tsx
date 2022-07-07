@@ -44,7 +44,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
   return {
     props: {
       title: targetItem.title,
-      content: stripScriptTags(targetItem['content:encoded']),
+      content: stripScriptTags(targetItem['content']),
       description: targetItem.contentSnippet || '',
       url: targetItem.enclosure.url,
       datePublished: targetItem.isoDate,

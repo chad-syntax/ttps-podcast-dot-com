@@ -17,4 +17,7 @@ export const PlayButton = styled.button`
   border-radius: 4px;
   cursor: pointer;
   color: white;
+  &[disabled] {
+    opacity: 0.75;
+  }
 `;
