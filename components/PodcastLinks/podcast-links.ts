@@ -1,6 +1,7 @@
 import spotifyLogo from './podcast-player-icons/spotify@2x.png';
 import anchorLogo from './podcast-player-icons/anchor-wave@2x.png';
 import amazonMusicLogo from './podcast-player-icons/amazon_music@2x.png';
+import castboxLogo from './podcast-player-icons/castbox@2x.png';
 import pocketCastsLogo from './podcast-player-icons/pocket_casts@2x.png';
 import radioPublicLogo from './podcast-player-icons/radiopublic@2x.png';
 import stitcherLogo from './podcast-player-icons/stitcher_dark@2x.png';
@@ -17,6 +18,11 @@ export const PODCAST_LINKS = [
     name: 'Amazon Music',
     url: 'https://music.amazon.com/podcasts/dca78d9b-8f96-4158-a1f3-0bf677df13e0/talking-tech-while-poking-smot',
     image: amazonMusicLogo,
+  },
+  {
+    name: 'Castbox',
+    url: 'https://castbox.fm/channel/id4998087',
+    image: castboxLogo,
   },
   {
     name: 'Pocket Casts',

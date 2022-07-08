@@ -13,6 +13,7 @@ export const PodcastLinksInner = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 `;
 
 export const StyledPodcastLink = styled.a`
