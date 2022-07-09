@@ -21,7 +21,7 @@ any merge into `main` will kick off a gh-pages deploy thanks to the build-and-de
 
 ## Building and deploying to ipfs
 
-- `npm install -g ifps-deploy` I'm not adding it to my deps since dependabot goes nuts on it, install it on your own
+- I'm not adding it to my deps since dependabot goes nuts on it, install it on your own
 - `yarn deploy:eth` will build, export, and deploy to ipfs
 - you will then need to update your ens record with the new ipfs hash
 

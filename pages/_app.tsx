@@ -10,7 +10,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${(p) => p.theme.ffIbmPlex};
     font-size: 62.5%;
     background-color: ${(p) => p.theme.background};
-    scroll-behavior: smooth;
   }
 
   body {

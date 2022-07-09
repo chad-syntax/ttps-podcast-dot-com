@@ -41,10 +41,17 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 
   const targetItem = feed.items.find((item) => slugify(item.title) === slug);
 
+  const anchorVMLink = 'https://anchor.fm/ttps/message';
+
+  const content = stripScriptTags(targetItem['content']).replace(
+    anchorVMLink,
+    `<a href="${anchorVMLink}" target="_blank" rel="noopener noreferrer">${anchorVMLink}</a>`
+  );
+
   return {
     props: {
       title: targetItem.title,
-      content: stripScriptTags(targetItem['content']),
+      content,
       description: targetItem.contentSnippet || '',
       url: targetItem.enclosure.url,
       datePublished: targetItem.isoDate,
