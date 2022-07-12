@@ -4,6 +4,10 @@ export const DECENTRALIZED = process.env.DECENTRALIZED === 'true';
 export const BUILD_TS = process.env.BUILD_TS
   ? new Date(Number(process.env.BUILD_TS) * 1000)
   : new Date();
+export const BLOG_API_TOKEN = process.env.BLOG_API_TOKEN || '';
+export const BLOG_GRAPHQL_ENDPOINT =
+  process.env.BLOG_GRAPHQL_ENDPOINT || 'https://api.github.com/graphql';
+export const BLOG_BRANCH = process.env.BLOG_BRANCH || 'main';
 
 if (!COMING_SOON_ENABLED && !RSS_FEED_URL)
   throw new Error(

@@ -12,7 +12,7 @@ import {
   RSS_FEED_URL,
   BUILD_TS,
   DECENTRALIZED,
-} from '../app.config';
+} from '../../app.config';
 
 const parser = new Parser();
 
