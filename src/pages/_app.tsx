@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { AudioPlayer } from '../components/AudioPlayer/AudioPlayer';
 import { AudioPlayerCtx } from '../components/AudioPlayer/AudioPlayerCtx';
-import { kSequence, kAudio, theme } from '../utils/constants';
+import { kSequence, kAudio, theme, Theme } from '../utils/constants';
 import { setSrc, play } from '../utils/audio';
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle<{ theme: Theme }>`
   html {
     font-family: ${(p) => p.theme.ffIbmPlex};
     font-size: 62.5%;
@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-size: 1.6rem;
     font-family: ${(p) => p.theme.ffUbuntu};
+    color: ${(p) => p.theme.offWhite};
   }
 
   * {

@@ -4,7 +4,7 @@ import { Footer } from '../../components/Footer/Footer';
 import { Episode } from '../../components/Episode/Episode';
 import { Meta } from '../../components/Meta/Meta';
 import slugify from '../../utils/slugify';
-import { COMING_SOON_ENABLED, RSS_FEED_URL } from '../../app.config';
+import { COMING_SOON_ENABLED, RSS_FEED_URL } from '../../../app.config';
 import { stripScriptTags } from '../../utils/strip-script-tags';
 
 const parser = new Parser();

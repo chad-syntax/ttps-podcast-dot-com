@@ -11,5 +11,7 @@ export const theme = {
   ffPressStart: '"Press Start 2P", cursive',
 };
 
+export type Theme = typeof theme;
+
 export const kSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 16, 13];
 export const kAudio = '/SERIES_OF_TUBES.mp3';

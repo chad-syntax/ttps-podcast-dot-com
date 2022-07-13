@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { BUILD_TS } from '../../../app.config';
 
 const rootUrl = 'https://ttpspodcast.com';
 
@@ -9,6 +10,7 @@ interface MetaProps {
   datePublished: string;
   dateModified: string;
   decentralized?: boolean;
+  author?: string;
 }
 
 export const Meta = (props: MetaProps) => {
@@ -19,6 +21,7 @@ export const Meta = (props: MetaProps) => {
     datePublished,
     dateModified,
     decentralized,
+    author,
   } = props;
   const structuredData = {
     '@context': 'http://schema.org',
@@ -37,7 +40,7 @@ export const Meta = (props: MetaProps) => {
     dateModified,
     author: {
       '@type': 'Person',
-      name: 'Chad $yntax',
+      name: author || 'Chad $yntax',
     },
     // publisher: {
     //   '@type': '...',

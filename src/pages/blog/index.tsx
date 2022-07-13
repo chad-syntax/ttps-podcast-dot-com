@@ -1,17 +1,13 @@
-import { MDXRemote } from 'next-mdx-remote';
+import { Meta } from '../../components/Meta/Meta';
 import { Footer } from '../../components/Footer/Footer';
-import { fetchBlogPosts } from '../../lib/blog';
-
-const Test = () => (
-  <h1>
-    <em>I AM TEST</em>
-  </h1>
-);
-
-const MDXComponents = { Test };
+import { Blog } from '../../components/Blog/Blog';
+import { fetchBlogPosts, Post } from '../../lib/blog';
+import { BUILD_TS } from '../../../app.config';
 
 interface BlogIndexPageProps {
-  posts: any[];
+  posts: Post[];
+  datePublished: string;
+  dateModified: string;
 }
 
 export async function getStaticProps() {
@@ -20,42 +16,28 @@ export async function getStaticProps() {
   return {
     props: {
       posts,
+      datePublished: BUILD_TS.toISOString(),
+      dateModified: BUILD_TS.toISOString(),
     },
   };
 }
 
+const title = "Chad $yntax's Blog of infinite Wonders";
+const description =
+  'The blog posts of a sweaty software engineer. Disclaimer: Wonders not guaranteed nor guranteed to be infinite.';
+
 export default function BlogIndexPage(props: BlogIndexPageProps) {
-  const { posts } = props;
+  const { posts, datePublished, dateModified } = props;
   return (
     <main>
-      blog index
-      <div style={{ color: 'white' }}>
-        {posts.map((post) => (
-          <div>
-            {post.data.title}
-            <MDXRemote
-              key={post.data.tile}
-              {...post.mdxSource}
-              components={MDXComponents}
-            />
-          </div>
-        ))}
-      </div>
-      {/* <Meta
+      <Meta
         title={title}
-        decentralized={decentralized}
         description={description}
+        type="Blog"
         datePublished={datePublished}
         dateModified={dateModified}
-        type="AboutPage"
-      /> */}
-      {/* {!comingSoonEnabled && <Header />} */}
-      {/* <Hero
-        decentralized={decentralized}
-        comingSoonEnabled={comingSoonEnabled}
       />
-      <PodcastLinks /> */}
-      {/* <Episodes episodes={episodes} comingSoonEnabled={comingSoonEnabled} /> */}
+      <Blog posts={posts} />
       <Footer />
     </main>
   );

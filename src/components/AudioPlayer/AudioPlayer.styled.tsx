@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledAudioPlayer = styled.div`
+export const StyledAudioPlayer = styled.div<{ $active: boolean }>`
   width: 100%;
   position: fixed;
   bottom: 0;
