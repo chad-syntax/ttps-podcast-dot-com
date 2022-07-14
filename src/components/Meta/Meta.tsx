@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { BUILD_TS } from '../../../app.config';
+import { useRouter } from 'next/router';
 
 const rootUrl = 'https://ttpspodcast.com';
 
@@ -11,9 +11,12 @@ interface MetaProps {
   dateModified: string;
   decentralized?: boolean;
   author?: string;
+  ogImage?: string;
 }
 
 export const Meta = (props: MetaProps) => {
+  const router = useRouter();
+
   const {
     title,
     description,
@@ -22,7 +25,16 @@ export const Meta = (props: MetaProps) => {
     dateModified,
     decentralized,
     author,
+    ogImage: ogImageInput,
   } = props;
+
+  const isBlog = router.route.includes('blog');
+
+  const defaultOgImage = `${rootUrl}/ttps_og.jpg`;
+
+  const ogUrl = `${rootUrl}/${router.asPath}`;
+  const ogImage = ogImageInput || defaultOgImage;
+
   const structuredData = {
     '@context': 'http://schema.org',
     '@type': type,
@@ -32,7 +44,7 @@ export const Meta = (props: MetaProps) => {
     headline: title,
     image: {
       '@type': 'ImageObject',
-      url: `${rootUrl}/ttps_og.jpg`,
+      url: ogImage,
       height: 630,
       width: 1200,
     },
@@ -60,12 +72,12 @@ export const Meta = (props: MetaProps) => {
     <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="author" content="Chad $yntax" />
+      <meta name="author" content={author || 'Chad $yntax'} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta property="og:title" content={title} />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content={rootUrl} />
-      <meta property="og:image" content={`${rootUrl}/ttps_og.jpg`} />
+      <meta property="og:url" content={ogUrl} />
+      <meta property="og:image" content={ogImage} />
       <meta property="og:description" content={description} />
       <meta property="og:site_name" content={title} />
       <meta name="twitter:card" content="summary_large_image" />
@@ -121,6 +133,10 @@ export const Meta = (props: MetaProps) => {
       <link
         href={`https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,300;0,400;0,700;1,300${
           decentralized ? '&family=Press+Start+2P' : ''
+        }${
+          isBlog
+            ? '&family=JetBrains+Mono:ital,wght@0,200;0,400;0,500;1,200;1,400'
+            : ''
         }&family=Ubuntu:wght@300&display=swap`}
         rel="stylesheet"
       />

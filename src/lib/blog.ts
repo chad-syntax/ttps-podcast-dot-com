@@ -48,14 +48,29 @@ export const fetchBlogPosts = async () => {
     },
   });
 
-  const { data } = await fetch(BLOG_GRAPHQL_ENDPOINT, {
+  const response = await fetch(BLOG_GRAPHQL_ENDPOINT, {
     ...fetchOpts,
     body,
   }).then((r) => r.json());
 
+  const { data, message, documentation_url } = response;
+
+  if (!data) {
+    throw new Error(`${message} ${documentation_url}. Check BLOG_ env vars.`);
+  }
+
   const posts = await Promise.all<Post[]>(
     data.repository.object.entries.map(processGiFileToPost)
   );
+
+  // files aren't sorted in the github repo, sort by pub date
+  posts.sort((a, b) => {
+    if (a.data.date === b.data.date) return 0;
+    const aDate = new Date(a.data.date);
+    const bDate = new Date(b.data.date);
+
+    return aDate > bDate ? -1 : 1;
+  });
 
   return posts;
 };
@@ -68,10 +83,16 @@ export const fetchBlogPost = async (slug: string) => {
     },
   });
 
-  const { data } = await fetch(BLOG_GRAPHQL_ENDPOINT, {
+  const response = await fetch(BLOG_GRAPHQL_ENDPOINT, {
     ...fetchOpts,
     body,
   }).then((r) => r.json());
+
+  const { data, message, documentation_url } = response;
+
+  if (!data) {
+    throw new Error(`${message} ${documentation_url}. Check BLOG_ env vars.`);
+  }
 
   const post = await processGiFileToPost({ ...data.repository, name: slug });
 

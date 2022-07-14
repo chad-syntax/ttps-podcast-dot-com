@@ -1,5 +1,3 @@
-import { BLOG_BRANCH } from '../../app.config';
-
 export const BLOG_POSTS_QUERY = `
 query BlogPosts($postsPath: String!) { 
   repository(name: "ttps-cms", owner: "chad-syntax") {

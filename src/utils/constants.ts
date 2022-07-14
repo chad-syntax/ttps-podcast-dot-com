@@ -9,6 +9,7 @@ export const theme = {
   ffIbmPlex: 'IBM Plex Sans Condensed, arial, sans-serif',
   ffUbuntu: 'Ubuntu, arial, sans-serif',
   ffPressStart: '"Press Start 2P", cursive',
+  ffJetbrainsMono: "'JetBrains Mono', monospace",
 };
 
 export type Theme = typeof theme;

@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { AudioPlayer } from '../components/AudioPlayer/AudioPlayer';
 import { AudioPlayerCtx } from '../components/AudioPlayer/AudioPlayerCtx';
 import { kSequence, kAudio, theme, Theme } from '../utils/constants';
 import { setSrc, play } from '../utils/audio';
 
-const GlobalStyle = createGlobalStyle<{ theme: Theme }>`
+const GlobalStyle = createGlobalStyle<{ theme: Theme; isBlog: boolean }>`
   html {
-    font-family: ${(p) => p.theme.ffIbmPlex};
+    font-family: ${(p) =>
+      p.isBlog ? p.theme.ffJetbrainsMono : p.theme.ffUbuntu};
     font-size: 62.5%;
     background-color: ${(p) => p.theme.background};
   }
@@ -15,8 +17,11 @@ const GlobalStyle = createGlobalStyle<{ theme: Theme }>`
   body {
     margin: 0;
     font-size: 1.6rem;
-    font-family: ${(p) => p.theme.ffUbuntu};
     color: ${(p) => p.theme.offWhite};
+  }
+
+  footer {
+    font-family: ${(p) => p.theme.ffUbuntu};
   }
 
   * {
@@ -35,6 +40,9 @@ const GlobalStyle = createGlobalStyle<{ theme: Theme }>`
 
 export default function App({ Component, pageProps }) {
   const [audioTitle, setAudioTitle] = useState<null | string>(null);
+
+  const { route } = useRouter();
+  const isBlog = route.includes('blog');
 
   useEffect(() => {
     let _seq = kSequence;
@@ -61,7 +69,7 @@ export default function App({ Component, pageProps }) {
       value={{ title: audioTitle, setTitle: setAudioTitle }}
     >
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
+        <GlobalStyle isBlog={isBlog} />
         <Component {...pageProps} />
         <AudioPlayer />
       </ThemeProvider>
