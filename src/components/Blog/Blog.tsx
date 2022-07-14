@@ -16,7 +16,9 @@ export const Blog = (props: BlogProps) => {
           A Blog of posts. Posts about software engineering, web development,
           and whatever else.
         </h2>
-        <p>Disclaimer: Wonders non-transferrable, see terms and conditions.</p>
+        <p>
+          Disclaimer: Wonders non-transferrable, see fine print for details.
+        </p>
         <div>
           {posts.map((post) => {
             const { title, author } = post.data;

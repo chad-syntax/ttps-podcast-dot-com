@@ -6,7 +6,7 @@ interface BlogPostProps {
 }
 
 const components = {
-  Test: () => <>hello</>,
+  Test: () => <>test Component</>,
 };
 
 export const BlogPost = (props: BlogPostProps) => {
