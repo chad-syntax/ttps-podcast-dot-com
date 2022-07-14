@@ -1,10 +1,7 @@
 import matter from 'gray-matter';
 import yaml from 'js-yaml';
 import { serialize } from 'next-mdx-remote/serialize';
-import {
-  BLOG_POSTS_QUERY,
-  BLOG_POST_QUERY,
-} from '../gql-queries/blog-posts-query';
+import { GIT_FILES_QUERY, GIT_FILE_QUERY } from '../gql-queries/git-queries';
 import {
   BLOG_GRAPHQL_ENDPOINT,
   BLOG_API_TOKEN,
@@ -19,6 +16,23 @@ const fetchOpts = {
   headers: {
     Authorization: `Bearer ${BLOG_API_TOKEN}`,
   },
+};
+
+const fetchFromGit = async (reqBody: any) => {
+  const body = JSON.stringify(reqBody);
+
+  const response = await fetch(BLOG_GRAPHQL_ENDPOINT, {
+    ...fetchOpts,
+    body,
+  }).then((r) => r.json());
+
+  const { data, message, documentation_url } = response;
+
+  if (!data) {
+    throw new Error(`${message} ${documentation_url}. Check BLOG_ env vars.`);
+  }
+
+  return data;
 };
 
 // turns md file into json data object for further parsing
@@ -41,23 +55,14 @@ const processGiFileToPost = async (entry: any) => {
 export type Post = Awaited<ReturnType<typeof processGiFileToPost>>;
 
 export const fetchBlogPosts = async () => {
-  const body = JSON.stringify({
-    query: BLOG_POSTS_QUERY,
+  const queryObj = {
+    query: GIT_FILES_QUERY,
     variables: {
-      postsPath: `${CONTENT_ROOT}/post/`,
+      expression: `${CONTENT_ROOT}/post/`,
     },
-  });
+  };
 
-  const response = await fetch(BLOG_GRAPHQL_ENDPOINT, {
-    ...fetchOpts,
-    body,
-  }).then((r) => r.json());
-
-  const { data, message, documentation_url } = response;
-
-  if (!data) {
-    throw new Error(`${message} ${documentation_url}. Check BLOG_ env vars.`);
-  }
+  const data = await fetchFromGit(queryObj);
 
   const posts = await Promise.all<Post[]>(
     data.repository.object.entries.map(processGiFileToPost)
@@ -76,25 +81,64 @@ export const fetchBlogPosts = async () => {
 };
 
 export const fetchBlogPost = async (slug: string) => {
-  const body = JSON.stringify({
-    query: BLOG_POST_QUERY,
+  const queryObj = {
+    query: GIT_FILE_QUERY,
     variables: {
-      postPath: `${CONTENT_ROOT}/post/${slug}.md`,
+      expression: `${CONTENT_ROOT}/post/${slug}.md`,
     },
-  });
+  };
 
-  const response = await fetch(BLOG_GRAPHQL_ENDPOINT, {
-    ...fetchOpts,
-    body,
-  }).then((r) => r.json());
-
-  const { data, message, documentation_url } = response;
-
-  if (!data) {
-    throw new Error(`${message} ${documentation_url}. Check BLOG_ env vars.`);
-  }
+  const data = await fetchFromGit(queryObj);
 
   const post = await processGiFileToPost({ ...data.repository, name: slug });
 
   return post;
+};
+
+export type Author = {
+  slug: string;
+  name: string;
+  title: string;
+  email: string;
+  shortbio: string;
+  authorimage: string;
+};
+
+const processGitFileToAuthor = (entry: any) => {
+  const slug = entry.name.replace('.json', '');
+  const authorData = JSON.parse(entry.object.text);
+  return {
+    slug,
+    ...authorData,
+  };
+};
+
+export const fetchAuthors = async () => {
+  const queryObj = {
+    query: GIT_FILES_QUERY,
+    variables: {
+      expression: `${CONTENT_ROOT}/authors/`,
+    },
+  };
+
+  const data = await fetchFromGit(queryObj);
+
+  const authors = data.repository.object.entries.map(processGitFileToAuthor);
+
+  return authors;
+};
+
+export const fetchAuthor = async (slug) => {
+  const queryObj = {
+    query: GIT_FILE_QUERY,
+    variables: {
+      expression: `${CONTENT_ROOT}/authors/${slug}.json`,
+    },
+  };
+
+  const data = await fetchFromGit(queryObj);
+
+  const author = processGitFileToAuthor({ ...data.repository, name: slug });
+
+  return author;
 };

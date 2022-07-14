@@ -1,7 +1,7 @@
-export const BLOG_POSTS_QUERY = `
-query BlogPosts($postsPath: String!) { 
+export const GIT_FILES_QUERY = `
+query GitFiles($expression: String!) { 
   repository(name: "ttps-cms", owner: "chad-syntax") {
-    object(expression: $postsPath) {
+    object(expression: $expression) {
       ... on Tree {
 				entries {
           name
@@ -17,10 +17,10 @@ query BlogPosts($postsPath: String!) {
 }
 `;
 
-export const BLOG_POST_QUERY = `
-query BlogPost($postPath: String!) {
+export const GIT_FILE_QUERY = `
+query GitFile($expression: String!) {
   repository(name: "ttps-cms", owner: "chad-syntax") {
-    object(expression: $postPath) {
+    object(expression: $expression) {
       ... on Blob {
         text
       }
