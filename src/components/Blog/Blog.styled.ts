@@ -3,12 +3,9 @@ import styled from 'styled-components';
 export const StyledBlog = styled.section`
   background-color: ${(p) => p.theme.background};
   font-family: ${(p) => p.theme.ffJetbrainsMono};
-  a {
-    color: white;
-  }
-
+  padding: 0 1.6rem;
   @media screen and (min-width: 500px) {
-    padding: 0 1.6rem;
+    padding: 0 2.4rem;
   }
 `;
 

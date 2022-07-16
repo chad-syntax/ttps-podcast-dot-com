@@ -7,8 +7,8 @@ import {
   Author,
 } from '../../lib/blog';
 import { Meta } from '../../components/Meta/Meta';
-import { Footer } from '../../components/Footer/Footer';
 import { BlogPost } from '../../components/BlogPost/BlogPost';
+import { BlogFooter } from '../../components/BlogFooter/BlogFooter';
 
 interface BlogPostPageProps {
   post: Post;
@@ -52,7 +52,7 @@ export default function BlogPostPage(props: BlogPostPageProps) {
         dateModified={dateModified}
       />
       <BlogPost post={post} author={author} />
-      <Footer />
+      <BlogFooter />
     </main>
   );
 }

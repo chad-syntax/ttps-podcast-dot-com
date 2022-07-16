@@ -44,12 +44,6 @@ export const Episode = styled.div`
   font-family: ${(p) => p.theme.ffIbmPlex};
   font-size: 2.6rem;
   margin-bottom: 1.6rem;
-  a {
-    color: white;
-    &:visited {
-      color: #b0b0b0;
-    }
-  }
 
   @media screen and (max-width: 768px) {
     font-size: 2rem;

@@ -30,6 +30,13 @@ const GlobalStyle = createGlobalStyle<{ theme: Theme; isBlog: boolean }>`
     box-sizing: border-box;
   }
 
+  a {
+    color: white;
+    &:visited {
+      color: #b0b0b0;
+    }
+  }
+
   main {
     @media screen and (max-width: 500px) {
       padding: 0 0.8rem;

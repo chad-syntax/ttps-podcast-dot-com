@@ -1,5 +1,5 @@
 import { Meta } from '../../components/Meta/Meta';
-import { Footer } from '../../components/Footer/Footer';
+import { BlogFooter } from '../../components/BlogFooter/BlogFooter';
 import { Blog } from '../../components/Blog/Blog';
 import { fetchBlogPosts, Post, fetchAuthors, Author } from '../../lib/blog';
 import { BUILD_TS } from '../../../app.config';
@@ -43,7 +43,7 @@ export default function BlogIndexPage(props: BlogIndexPageProps) {
         dateModified={dateModified}
       />
       <Blog posts={posts} authors={authors} />
-      <Footer />
+      <BlogFooter />
     </main>
   );
 }

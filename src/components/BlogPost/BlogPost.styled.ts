@@ -3,7 +3,11 @@ import styled from 'styled-components';
 export const Inner = styled.div`
   max-width: 700px;
   margin: 0 auto;
-  padding: 1.6rem 0;
+  padding: 1.6rem 0 0;
+`;
+
+export const BlogPostSection = styled.section`
+  margin: 0 1.6rem;
 `;
 
 export const BlogPostTitle = styled.h1`
@@ -11,7 +15,7 @@ export const BlogPostTitle = styled.h1`
   font-style: italic;
   text-transform: UPPERCASE;
   color: white;
-  margin-bottom: 1.2rem;
+  margin: 0 0 1.2rem;
 `;
 
 export const BlogPostSubTitle = styled.h2`
@@ -24,9 +28,6 @@ export const BlogPostByline = styled.p`
   padding-bottom: 1.6rem;
   border-bottom: 1px solid ${(p) => p.theme.offWhite};
   font-size: 1.2rem;
-  a {
-    color: white;
-  }
 `;
 
 export const BlogPostBody = styled.div`
@@ -37,5 +38,8 @@ export const BlogPostBody = styled.div`
   h5,
   h6 {
     font-weight: 400;
+  }
+  p {
+    text-align: justify;
   }
 `;

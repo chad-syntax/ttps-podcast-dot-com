@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { BreadCrumbs } from '../BreadCrumbs/BreadCrumbs';
 import {
   Inner,
+  BlogPostSection,
   BlogPostTitle,
   BlogPostSubTitle,
   BlogPostByline,
@@ -27,7 +28,7 @@ export const BlogPost = (props: BlogPostProps) => {
   const pubTime = dateObj.toLocaleTimeString();
 
   return (
-    <section>
+    <BlogPostSection>
       <Inner>
         <BreadCrumbs />
         <BlogPostTitle>{title}</BlogPostTitle>
@@ -40,6 +41,6 @@ export const BlogPost = (props: BlogPostProps) => {
           <Mdx mdxSource={post.mdxSource} />
         </BlogPostBody>
       </Inner>
-    </section>
+    </BlogPostSection>
   );
 };
