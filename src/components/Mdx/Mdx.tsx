@@ -1,6 +1,9 @@
 import { MDXRemote } from 'next-mdx-remote';
 import { ReactNode } from 'react';
 import { MdxSource } from '../../lib/blog';
+import slugify from '../../utils/slugify';
+import { CopyTag } from '../CopyTag/CopyTag';
+import { MdxWrapper } from './Mdx.styled';
 
 interface MdxProps extends MdxSource {
   components?: {
@@ -10,6 +13,24 @@ interface MdxProps extends MdxSource {
 
 const commonMdxComponents = {
   Test: () => <>test Component</>,
+  h1: ({ children }) => (
+    <h1 id={slugify(children)}>
+      {children}
+      <CopyTag hash={`#${slugify(children)}`} />
+    </h1>
+  ),
+  h2: ({ children }) => (
+    <h1 id={slugify(children)}>
+      {children}
+      <CopyTag hash={`#${slugify(children)}`} />
+    </h1>
+  ),
+  h3: ({ children }) => (
+    <h1 id={slugify(children)}>
+      {children}
+      <CopyTag hash={`#${slugify(children)}`} />
+    </h1>
+  ),
 };
 
 export const Mdx = (props: MdxProps) => {
@@ -18,5 +39,9 @@ export const Mdx = (props: MdxProps) => {
     ...commonMdxComponents,
     ...(componentsInput ?? {}),
   };
-  return <MDXRemote {...mdxSource} components={components} />;
+  return (
+    <MdxWrapper>
+      <MDXRemote {...mdxSource} components={components} />
+    </MdxWrapper>
+  );
 };

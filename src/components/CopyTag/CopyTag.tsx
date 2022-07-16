@@ -18,7 +18,12 @@ const activeCopyState = {
   copyText: 'Copied!',
 } as const;
 
-export const CopyTag = () => {
+interface CopyTagProps {
+  hash?: string;
+}
+
+export const CopyTag = (props: CopyTagProps) => {
+  const { hash } = props;
   const [copyState, setCopyState] = useState<CopyState>(defaultCopyState);
   const { isCopied, copyText } = copyState;
   const timeoutRef = useRef<null | NodeJSTimeout>(null);
@@ -35,7 +40,7 @@ export const CopyTag = () => {
   const onClick = async (e) => {
     e.preventDefault();
     try {
-      await navigator.clipboard.writeText(location.href);
+      await navigator.clipboard.writeText(`${location.href}${hash || ''}`);
       setCopyState(activeCopyState);
     } catch (e) {
       setCopyState(defaultCopyState);
