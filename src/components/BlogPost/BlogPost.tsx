@@ -1,23 +1,45 @@
-import { MDXRemote } from 'next-mdx-remote';
+import Link from 'next/link';
 import { BreadCrumbs } from '../BreadCrumbs/BreadCrumbs';
-import { Post } from '../../lib/blog';
+import {
+  Inner,
+  BlogPostTitle,
+  BlogPostSubTitle,
+  BlogPostByline,
+  BlogPostBody,
+} from './BlogPost.styled';
+import { Post, Author } from '../../lib/blog';
+import { Mdx } from '../Mdx/Mdx';
 
 interface BlogPostProps {
   post: Post;
+  author: Author;
 }
 
-const components = {
-  Test: () => <>test Component</>,
-};
-
 export const BlogPost = (props: BlogPostProps) => {
-  const { post } = props;
+  const { post, author } = props;
+
+  const {
+    data: { date, title, description },
+  } = post;
+
+  const dateObj = new Date(date);
+  const pubDate = dateObj.toLocaleDateString();
+  const pubTime = dateObj.toLocaleTimeString();
+
   return (
     <section>
-      <BreadCrumbs />
-      <h1>{post.data.title}</h1>
-      <h2>{post.data.description}</h2>
-      <MDXRemote {...post.mdxSource} components={components} />
+      <Inner>
+        <BreadCrumbs />
+        <BlogPostTitle>{title}</BlogPostTitle>
+        <BlogPostSubTitle>{description}</BlogPostSubTitle>
+        <BlogPostByline>
+          Published {pubDate} {`@ ${pubTime}`} by&nbsp;
+          <Link href={`/blog/authors/${author.slug}`}>{author.name}</Link>
+        </BlogPostByline>
+        <BlogPostBody>
+          <Mdx mdxSource={post.mdxSource} />
+        </BlogPostBody>
+      </Inner>
     </section>
   );
 };

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Fragment } from 'react';
 import { useRouter } from 'next/router';
 import { ExitLink, BreadCrumbsNav, CopyTag } from './BreadCrumbs.styled';
 
@@ -58,7 +58,7 @@ export const BreadCrumbs = () => {
         };
 
         return (
-          <>
+          <Fragment key={otherLink}>
             <span>{'/'}</span>
             <ExitLink
               href={href}
@@ -66,10 +66,12 @@ export const BreadCrumbs = () => {
             >
               {otherLink}
               {isLast && (
-                <CopyTag active={copyState.isCopied}>{copyText}</CopyTag>
+                <span className="relative">
+                  <CopyTag active={copyState.isCopied}>{copyText}</CopyTag>
+                </span>
               )}
             </ExitLink>
-          </>
+          </Fragment>
         );
       })}
     </BreadCrumbsNav>

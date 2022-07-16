@@ -2,9 +2,12 @@ import { processJsonGitFile, processMdxGitFile, fetchFromGit } from './git';
 import { COLLECTIONS } from './collections';
 
 export type Post = Awaited<ReturnType<typeof processMdxGitFile>>;
+export type MdxSource = Pick<Post, 'mdxSource'>;
 
 export const fetchBlogPosts = async (): Promise<Post[]> => {
   const data = await fetchFromGit(COLLECTIONS.POST);
+
+  if (!data.repository.object) return [];
 
   const posts = await Promise.all<Post[]>(
     data.repository.object.entries.map(processMdxGitFile)

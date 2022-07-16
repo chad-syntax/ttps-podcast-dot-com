@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Post } from '../../lib/blog';
+import { Post, Author } from '../../lib/blog';
 import { StyledBlog, Inner, Article, ArticleLink } from './Blog.styled';
 import { Hero } from './Blog.styled';
 import caveImgPng from './hero-images/chad-syntax-blog-cave.png';
@@ -7,13 +7,24 @@ import caveImgPng2x from './hero-images/chad-syntax-blog-cave@2x.png';
 import caveImgWebp from './hero-images/chad-syntax-blog-cave.webp';
 import caveImgWebp2x from './hero-images/chad-syntax-blog-cave@2x.png';
 import { BreadCrumbs } from '../BreadCrumbs/BreadCrumbs';
+import { useMemo } from 'react';
 
 interface BlogProps {
   posts: Post[];
+  authors: Author[];
 }
 
 export const Blog = (props: BlogProps) => {
-  const { posts } = props;
+  const { posts, authors } = props;
+
+  const authorsMap = useMemo(() => {
+    const map = new Map();
+    for (const author of authors) {
+      map.set(author.slug, author);
+    }
+    return map;
+  }, [authors]);
+
   return (
     <StyledBlog>
       <Inner>
@@ -44,15 +55,22 @@ export const Blog = (props: BlogProps) => {
             *Disclaimer: Wonders non-transferrable, see fine print for details.
           </h3>
         </Hero>
+        {posts.length === 0 && <p>The cave is... empty? Wtf.</p>}
         <div>
           {posts.map((post) => {
             const { title, author } = post.data;
+            const targetAuthor = authorsMap.get(author);
             return (
               <Link key={title} href={`/blog/${post.slug}`} passHref>
                 <ArticleLink>
                   <Article>
                     <h3>{post.data.title}</h3>
-                    <h5>By {author}</h5>
+                    <h5>
+                      By&nbsp;
+                      <Link href={`/blog/authors/${targetAuthor.slug}`}>
+                        <a>{targetAuthor.name}</a>
+                      </Link>
+                    </h5>
                     <p>{post.data.description}</p>
                   </Article>
                 </ArticleLink>

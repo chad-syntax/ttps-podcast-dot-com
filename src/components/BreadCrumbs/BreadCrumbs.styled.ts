@@ -16,13 +16,18 @@ export const CopyTag = styled.div<{ active: boolean }>`
 export const ExitLink = styled.a<{ isLast?: boolean }>`
   text-decoration: underline;
   position: relative;
+  color: white;
   &:hover ${CopyTag} {
     opacity: 1;
   }
 `;
 
 export const BreadCrumbsNav = styled.nav`
+  line-height: 2.8rem;
   span {
     margin: 0 0.8rem;
+  }
+  .relative {
+    position: relative;
   }
 `;
