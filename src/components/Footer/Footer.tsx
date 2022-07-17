@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { StyledFooter } from './Footer.styled';
 
 export const Footer = () => (
@@ -68,6 +69,10 @@ export const Footer = () => (
       >
         github
       </a>
+      {' | '}
+      <Link href="/blog">
+        <a>blog</a>
+      </Link>
     </div>
   </StyledFooter>
 );

@@ -73,20 +73,16 @@ interface EpisodeProps {
 export default function EpisodePage(props: EpisodeProps) {
   const { title, description, datePublished, dateModified } = props;
 
-  const trimmedDescription = `${description.substring(0, 147)}...`;
-
   return (
-    <main>
+    <>
       <Meta
         title={title}
-        description={trimmedDescription}
+        description={description}
         type="PodcastEpisode"
         datePublished={datePublished}
         dateModified={dateModified}
       />
-      <Header />
       <Episode {...props} />
-      <Footer />
-    </main>
+    </>
   );
 }

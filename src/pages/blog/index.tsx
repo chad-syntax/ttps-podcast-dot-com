@@ -34,7 +34,7 @@ const description =
 export default function BlogIndexPage(props: BlogIndexPageProps) {
   const { posts, authors, datePublished, dateModified } = props;
   return (
-    <main>
+    <>
       <Meta
         title={title}
         description={description}
@@ -43,7 +43,6 @@ export default function BlogIndexPage(props: BlogIndexPageProps) {
         dateModified={dateModified}
       />
       <Blog posts={posts} authors={authors} />
-      <BlogFooter />
-    </main>
+    </>
   );
 }

@@ -4,12 +4,12 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { AudioPlayer } from '../components/AudioPlayer/AudioPlayer';
 import { AudioPlayerCtx } from '../components/AudioPlayer/AudioPlayerCtx';
 import { kSequence, kAudio, theme, Theme } from '../utils/constants';
+import { PodcastLayout } from '../components/Layout/PodcastLayout';
+import { BlogLayout } from '../components/Layout/BlogLayout';
 import { setSrc, play } from '../utils/audio';
 
 const GlobalStyle = createGlobalStyle<{ theme: Theme; isBlog: boolean }>`
   html {
-    font-family: ${(p) =>
-      p.isBlog ? p.theme.ffJetbrainsMono : p.theme.ffUbuntu};
     font-size: 62.5%;
     background-color: ${(p) => p.theme.background};
   }
@@ -18,10 +18,6 @@ const GlobalStyle = createGlobalStyle<{ theme: Theme; isBlog: boolean }>`
     margin: 0;
     font-size: 1.6rem;
     color: ${(p) => p.theme.offWhite};
-  }
-
-  footer {
-    font-family: ${(p) => p.theme.ffUbuntu};
   }
 
   * {
@@ -36,13 +32,6 @@ const GlobalStyle = createGlobalStyle<{ theme: Theme; isBlog: boolean }>`
       color: #b0b0b0;
     }
   }
-
-  main {
-    @media screen and (max-width: 500px) {
-      padding: 0 0.8rem;
-      background-color: ${(p) => p.theme.background};
-    }
-  }
 `;
 
 export default function App({ Component, pageProps }) {
@@ -50,6 +39,8 @@ export default function App({ Component, pageProps }) {
 
   const { route } = useRouter();
   const isBlog = route.includes('blog');
+
+  const Layout = isBlog ? BlogLayout : PodcastLayout;
 
   useEffect(() => {
     let _seq = kSequence;
@@ -76,9 +67,11 @@ export default function App({ Component, pageProps }) {
       value={{ title: audioTitle, setTitle: setAudioTitle }}
     >
       <ThemeProvider theme={theme}>
-        <GlobalStyle isBlog={isBlog} />
-        <Component {...pageProps} />
-        <AudioPlayer />
+        <Layout>
+          <GlobalStyle isBlog={isBlog} />
+          <Component {...pageProps} />
+          <AudioPlayer />
+        </Layout>
       </ThemeProvider>
     </AudioPlayerCtx.Provider>
   );

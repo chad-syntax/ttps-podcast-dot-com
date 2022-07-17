@@ -14,6 +14,8 @@ interface BlogProps {
   authors: Author[];
 }
 
+const maxDescCharCount = 275;
+
 export const Blog = (props: BlogProps) => {
   const { posts, authors } = props;
 
@@ -60,6 +62,12 @@ export const Blog = (props: BlogProps) => {
           {posts.map((post) => {
             const { title, author } = post.data;
             const targetAuthor = authorsMap.get(author);
+            let description = post.data.description ?? '';
+            if (description.length > maxDescCharCount) {
+              description = `${description
+                .slice(0, maxDescCharCount)
+                .trim()}...`;
+            }
             return (
               <Link key={title} href={`/blog/${post.slug}`} passHref>
                 <ArticleLink>
@@ -71,7 +79,7 @@ export const Blog = (props: BlogProps) => {
                         <a>{targetAuthor.name}</a>
                       </Link>
                     </h5>
-                    <p>{post.data.description}</p>
+                    <p>{description}</p>
                   </Article>
                 </ArticleLink>
               </Link>

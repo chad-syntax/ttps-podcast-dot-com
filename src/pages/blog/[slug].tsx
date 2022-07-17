@@ -43,7 +43,7 @@ export default function BlogPostPage(props: BlogPostPageProps) {
   const { post, author, dateModified } = props;
   const { title, description, date } = post.data;
   return (
-    <main>
+    <>
       <Meta
         title={title}
         description={description}
@@ -52,7 +52,6 @@ export default function BlogPostPage(props: BlogPostPageProps) {
         dateModified={dateModified}
       />
       <BlogPost post={post} author={author} />
-      <BlogFooter />
-    </main>
+    </>
   );
 }

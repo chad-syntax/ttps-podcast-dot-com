@@ -32,7 +32,12 @@ export const processMdxGitFile = async (entry: any) => {
   const mdxMetadata = parseMdxData(fileContents);
   const mdxSource = await serialize(mdxMetadata.content);
   const slug = entry.name.replace('.mdx', '');
-  const parsedFileData = { ...mdxMetadata, mdxSource, slug };
+  const parsedFileData = {
+    ...mdxMetadata,
+    mdxSource,
+    slug,
+  };
+  delete parsedFileData.content;
   return parsedFileData;
 };
 

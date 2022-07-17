@@ -4,6 +4,14 @@ import { COLLECTIONS } from './collections';
 export type Post = Awaited<ReturnType<typeof processMdxGitFile>>;
 export type MdxSource = Pick<Post, 'mdxSource'>;
 
+const postSort = (a, b) => {
+  if (a.data.date === b.data.date) return 0;
+  const aDate = new Date(a.data.date);
+  const bDate = new Date(b.data.date);
+
+  return aDate > bDate ? -1 : 1;
+};
+
 export const fetchBlogPosts = async (): Promise<Post[]> => {
   const data = await fetchFromGit(COLLECTIONS.POST);
 
@@ -14,13 +22,7 @@ export const fetchBlogPosts = async (): Promise<Post[]> => {
   );
 
   // files aren't sorted in the github repo, sort by pub date
-  posts.sort((a, b) => {
-    if (a.data.date === b.data.date) return 0;
-    const aDate = new Date(a.data.date);
-    const bDate = new Date(b.data.date);
-
-    return aDate > bDate ? -1 : 1;
-  });
+  posts.sort(postSort);
 
   return posts;
 };
@@ -56,4 +58,23 @@ export const fetchAuthor = async (slug: string): Promise<Author> => {
   const author = processJsonGitFile({ ...data.repository, name: slug });
 
   return author;
+};
+
+export const fetchPostsByAuthor = async (slug: string): Promise<Post[]> => {
+  const data = await fetchFromGit(COLLECTIONS.POST);
+
+  if (!data.repository.object) return [];
+
+  const posts = await Promise.all<Post[]>(
+    data.repository.object.entries.map(processMdxGitFile)
+  );
+
+  const postsByAuthor = posts.filter((post) => post.data.author === slug);
+
+  console.log('postsByAuthor', postsByAuthor);
+
+  // files aren't sorted in the github repo, sort by pub date
+  postsByAuthor.sort(postSort);
+
+  return postsByAuthor;
 };

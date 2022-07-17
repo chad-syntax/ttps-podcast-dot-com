@@ -20,16 +20,16 @@ const commonMdxComponents = {
     </h1>
   ),
   h2: ({ children }) => (
-    <h1 id={slugify(children)}>
+    <h2 id={slugify(children)}>
       {children}
       <CopyTag hash={`#${slugify(children)}`} />
-    </h1>
+    </h2>
   ),
   h3: ({ children }) => (
-    <h1 id={slugify(children)}>
+    <h3 id={slugify(children)}>
       {children}
       <CopyTag hash={`#${slugify(children)}`} />
-    </h1>
+    </h3>
   ),
 };
 

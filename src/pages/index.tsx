@@ -72,7 +72,7 @@ export default function Home(props: HomeProps) {
     ? comingSoonDescription
     : launchDescription;
   return (
-    <main>
+    <>
       <Meta
         title={title}
         decentralized={decentralized}
@@ -81,14 +81,7 @@ export default function Home(props: HomeProps) {
         dateModified={dateModified}
         type="AboutPage"
       />
-      {!comingSoonEnabled && <Header />}
-      <Hero
-        decentralized={decentralized}
-        comingSoonEnabled={comingSoonEnabled}
-      />
-      <PodcastLinks />
       <Episodes episodes={episodes} comingSoonEnabled={comingSoonEnabled} />
-      <Footer />
-    </main>
+    </>
   );
 }

@@ -19,7 +19,7 @@ export const Meta = (props: MetaProps) => {
 
   const {
     title,
-    description,
+    description: descriptionInput,
     type,
     datePublished,
     dateModified,
@@ -27,6 +27,11 @@ export const Meta = (props: MetaProps) => {
     author,
     ogImage: ogImageInput,
   } = props;
+
+  const description =
+    descriptionInput.length > 150
+      ? `${descriptionInput.substring(0, 147)}...`
+      : descriptionInput;
 
   const isBlog = router.route.includes('blog');
 

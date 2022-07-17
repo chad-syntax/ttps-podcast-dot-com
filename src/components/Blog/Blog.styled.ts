@@ -65,6 +65,10 @@ export const Article = styled.article`
     font-size: 3.2rem;
     font-style: italic;
     text-transform: UPPERCASE;
+    color: white;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
   h5 {
     margin: 0;

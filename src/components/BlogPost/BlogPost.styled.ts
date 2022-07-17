@@ -30,7 +30,7 @@ export const BlogPostByline = styled.p`
   font-size: 1.2rem;
 `;
 
-export const BlogPostBody = styled.div`
+export const BlogPostBody = styled.article`
   h1,
   h2,
   h3,
