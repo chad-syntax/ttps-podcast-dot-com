@@ -2,7 +2,7 @@ export const audioPlayerId = '__ttps-audio-player';
 export const audioPlayerWrapperId = '__ttps-audio-player-wrapper';
 
 export const theme = {
-  background: '#080808',
+  background: '#020202',
   offWhite: '#d0d0d0',
   buttonBg: '#241c15',
   ethPurple: '#37367b',

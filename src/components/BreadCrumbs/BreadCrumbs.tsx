@@ -11,7 +11,7 @@ export const BreadCrumbs = () => {
 
   return (
     <BreadCrumbsNav>
-      <Link href="/">
+      <Link href="/" passHref>
         <ExitLink>&#60; Exit the cave</ExitLink>
       </Link>
       {otherLinks.map((otherLink, index) => {

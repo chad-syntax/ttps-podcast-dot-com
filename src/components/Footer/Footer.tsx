@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { StyledFooter } from './Footer.styled';
+import { CaveEntrance } from '../CaveEntrance/CaveEntrance';
 
 export const Footer = () => (
   <StyledFooter id="contact">
@@ -69,10 +70,7 @@ export const Footer = () => (
       >
         github
       </a>
-      {' | '}
-      <Link href="/blog">
-        <a>blog</a>
-      </Link>
     </div>
+    <CaveEntrance />
   </StyledFooter>
 );

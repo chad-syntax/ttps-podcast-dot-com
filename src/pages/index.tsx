@@ -1,11 +1,7 @@
 import React from 'react';
 import Parser from 'rss-parser';
-import { Hero } from '../components/Hero/Hero';
 import { Episodes } from '../components/Episodes/Episodes';
-import { Footer } from '../components/Footer/Footer';
-import { PodcastLinks } from '../components/PodcastLinks/PodcastLinks';
 import { Meta } from '../components/Meta/Meta';
-import { Header } from '../components/Header/Header';
 import slugify from '../utils/slugify';
 import {
   COMING_SOON_ENABLED as comingSoonEnabled,
