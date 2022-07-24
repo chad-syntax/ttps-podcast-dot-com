@@ -30,12 +30,24 @@ export const processJsonGitFile = (entry: any) => {
 export const processMdxGitFile = async (entry: any) => {
   const fileContents = entry.object.text;
   const mdxMetadata = parseMdxData(fileContents);
+  const wordCount = mdxMetadata.content.trim().split(' ').length;
+  // 250 is average WPM
+  const minutesToRead = Math.floor(wordCount / 250);
+  const readTime = `Read time: ${
+    minutesToRead < 1
+      ? 'less than a minute'
+      : minutesToRead === 1
+      ? `1 minute`
+      : `${minutesToRead} minutes`
+  }`;
   const mdxSource = await serialize(mdxMetadata.content);
   const slug = entry.name.replace('.mdx', '');
   const parsedFileData = {
     ...mdxMetadata,
     mdxSource,
     slug,
+    wordCount,
+    readTime,
   };
   delete parsedFileData.content;
   return parsedFileData;

@@ -17,7 +17,7 @@ export const Authors = (props: AuthorsProps) => {
         <h2>Can't live with 'em, can't live without 'em</h2>
         <AuthorsList>
           {authors.map((author) => (
-            <p>
+            <p key={author.slug}>
               <Link href={`/blog/authors/${author.slug}`}>{author.name}</Link>
             </p>
           ))}

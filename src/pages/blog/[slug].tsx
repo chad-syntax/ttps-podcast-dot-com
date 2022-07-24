@@ -50,6 +50,9 @@ export default function BlogPostPage(props: BlogPostPageProps) {
         type="BlogPosting"
         datePublished={date}
         dateModified={dateModified}
+        additionalStructuredData={{
+          wordCount: post.wordCount,
+        }}
       />
       <BlogPost post={post} author={author} />
     </>

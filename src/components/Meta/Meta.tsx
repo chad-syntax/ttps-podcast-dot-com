@@ -12,6 +12,7 @@ interface MetaProps {
   decentralized?: boolean;
   author?: string;
   ogImage?: string;
+  additionalStructuredData?: any;
 }
 
 export const Meta = (props: MetaProps) => {
@@ -26,6 +27,7 @@ export const Meta = (props: MetaProps) => {
     decentralized,
     author,
     ogImage: ogImageInput,
+    additionalStructuredData = {},
   } = props;
 
   const description =
@@ -72,6 +74,7 @@ export const Meta = (props: MetaProps) => {
     description,
     keywords:
       'podcast web development software engineering educational technology weed talk show discussion',
+    ...additionalStructuredData,
   };
   return (
     <Head>

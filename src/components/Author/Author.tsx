@@ -32,7 +32,7 @@ export const Author = (props: AuthorProps) => {
         <h3>Posts by this author</h3>
         <ul>
           {posts.map((post) => (
-            <li>
+            <li key={post.slug}>
               <Link href={`/blog/${post.slug}`}>{post.data.title}</Link>
             </li>
           ))}

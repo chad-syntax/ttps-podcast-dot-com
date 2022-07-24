@@ -21,6 +21,7 @@ export const BlogPost = (props: BlogPostProps) => {
 
   const {
     data: { date, title, description },
+    readTime,
   } = post;
 
   const dateObj = new Date(date);
@@ -31,13 +32,15 @@ export const BlogPost = (props: BlogPostProps) => {
     <BlogPostSection>
       <Inner>
         <BreadCrumbs />
-        <BlogPostTitle>{title}</BlogPostTitle>
-        <BlogPostSubTitle>{description}</BlogPostSubTitle>
-        <BlogPostByline>
-          Published {pubDate} {`@ ${pubTime}`} by&nbsp;
-          <Link href={`/blog/authors/${author.slug}`}>{author.name}</Link>
-        </BlogPostByline>
         <BlogPostBody>
+          <BlogPostTitle>{title}</BlogPostTitle>
+          <BlogPostSubTitle>{description}</BlogPostSubTitle>
+          <BlogPostByline>
+            Published {pubDate} {`@ ${pubTime}`} by&nbsp;
+            <Link href={`/blog/authors/${author.slug}`}>{author.name}</Link>
+            <span> | </span>
+            <span>{readTime}</span>
+          </BlogPostByline>
           <Mdx mdxSource={post.mdxSource} />
         </BlogPostBody>
       </Inner>

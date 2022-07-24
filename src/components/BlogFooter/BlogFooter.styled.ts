@@ -13,4 +13,6 @@ export const StyledBlogFooter = styled.footer`
 
 export const BlogLegalise = styled.p`
   font-size: 1rem;
+  text-transform: uppercase;
+  text-align: justify;
 `;
