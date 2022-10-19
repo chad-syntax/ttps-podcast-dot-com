@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://ttpspodcast.com</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-09-15T06:34:01.660Z</lastmod></url>
-<url><loc>https://ttpspodcast.com/episodes/The-Ballmer-Peak</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-09-15T06:34:01.661Z</lastmod></url>
-<url><loc>https://ttpspodcast.com/episodes/How-does-one-work-with-a-designer</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-09-15T06:34:01.661Z</lastmod></url>
-<url><loc>https://ttpspodcast.com/episodes/How-do-you-handle-a-production-outage</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-09-15T06:34:01.661Z</lastmod></url>
-<url><loc>https://ttpspodcast.com/episodes/Hits-Blunt-Factory-games-are-like-writing-software</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-09-15T06:34:01.661Z</lastmod></url>
-<url><loc>https://ttpspodcast.com/episodes/Whats-a-RIF</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-09-15T06:34:01.661Z</lastmod></url>
-<url><loc>https://ttpspodcast.com/episodes/Learning-Big-O-Will-Change-Your-Life</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-09-15T06:34:01.661Z</lastmod></url>
-<url><loc>https://ttpspodcast.com/episodes/Front-end-testing-sucks-change-my-mind</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-09-15T06:34:01.661Z</lastmod></url>
-<url><loc>https://ttpspodcast.com/episodes/I-write-jobs-at-my-job</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-09-15T06:34:01.661Z</lastmod></url>
-<url><loc>https://ttpspodcast.com/episodes/Whoops-I-put-my-website-on-the-blockchain</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-09-15T06:34:01.661Z</lastmod></url>
-<url><loc>https://ttpspodcast.com/episodes/What-do-people-mean-by-serverless</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-09-15T06:34:01.661Z</lastmod></url>
-<url><loc>https://ttpspodcast.com/episodes/Goodbye-Internet-Explorer-you-will-not-be-missed</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-09-15T06:34:01.661Z</lastmod></url>
-<url><loc>https://ttpspodcast.com/episodes/Whats-SCRUM-like-for-real</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-09-15T06:34:01.661Z</lastmod></url>
-<url><loc>https://ttpspodcast.com/episodes/I-hate-cookie-popups-and-you-should-too</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-09-15T06:34:01.661Z</lastmod></url>
-<url><loc>https://ttpspodcast.com/episodes/Can-I-be-good-will-hunting</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-09-15T06:34:01.661Z</lastmod></url>
+<url><loc>https://ttpspodcast.com</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/How-tf-am-I-still-running-out-of-RAM</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/Dont-get-pwnd-you-nerds</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/What-is-a-CLI</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/Root-Cause-Analysis</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/The-Ballmer-Peak</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/How-does-one-work-with-a-designer</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/How-do-you-handle-a-production-outage</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/Hits-Blunt-Factory-games-are-like-writing-software</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/Whats-a-RIF</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/Learning-Big-O-Will-Change-Your-Life</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/Front-end-testing-sucks-change-my-mind</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/I-write-jobs-at-my-job</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/Whoops-I-put-my-website-on-the-blockchain</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/What-do-people-mean-by-serverless</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/Goodbye-Internet-Explorer-you-will-not-be-missed</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/Whats-SCRUM-like-for-real</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/I-hate-cookie-popups-and-you-should-too</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
+<url><loc>https://ttpspodcast.com/episodes/Can-I-be-good-will-hunting</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-10-19T05:17:35.483Z</lastmod></url>
 </urlset>
